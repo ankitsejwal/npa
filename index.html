@@ -8,14 +8,13 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
 </head>
-<body>
+<body onload="init()">
     <div id="value">
-            <p>Enter amount in crore</p>
             <p>
                 Rs. <span id="rs-value">0</span> crore
                 <span id="rs-value-numeric"></span>
             </p>
-        <input onkeyup="enteredValue()" type="text" id="rupee-value">
+        <input onkeyup="enteredValue()" type="text" id="rupee-value" placeholder="Enter amount in crore">
         <br>
         <button onclick="calculate()">Convert</button>
     </div>

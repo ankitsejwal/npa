@@ -1,3 +1,8 @@
+function init() {
+    // clear form input onload
+    document.getElementById('rupee-value').value = "";
+}
+
 function calculate() {
     // implement calculate main function
     const dollar = 68; // dollar to ruppee value
