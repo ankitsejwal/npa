@@ -3,16 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>NPA calculator</title>
+    <title>NPA converter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body onload="init()">
     <div id="value">
-            <p>
-                Rs. <span id="rs-value">0</span> crore
-                <span id="rs-value-numeric"></span>
-            </p>
+        <p>
+            Rs. 
+            <span id="rs-value">0</span> crore
+            <span id="rs-value-numeric"></span>
+        </p>
         <input onkeyup="enteredValue()" type="text" id="rupee-value" placeholder="Enter amount in crore">
         <br>
         <button onclick="calculate()">Convert</button>
