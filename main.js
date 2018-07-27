@@ -10,22 +10,31 @@ function calculate() {
     const million   = 1000000;
     const billion   = 1000000000;
 
-    let rupee = document.getElementById('rupee-value').value;
+    let rupee = getRupeeValue();
     let result = (rupee * crore)/dollar;
     let displayResult = `= $ ${Math.round(result)}`
+    if (rupee === ""){
+        displayResult = '';
+        document.getElementById('typed-value').innerHTML = 'Please enter a value ...';
+    }
     document.getElementById('result').innerHTML = displayResult;
-    console.log(result);
+    console.log(displayResult);
     console.log(fnum(result));
 }
 
+function getRupeeValue(){
+    let value = document.getElementById('rupee-value').value;
+    return value;
+}
+
 function enteredValue(){
-    let value       = document.getElementById('rupee-value').value;
+    let value       = getRupeeValue();
     let valueRupees = `Rs. ${value} `
     let valueCrore  = `(${value * 10000000})`;   // convert to crore
 
+    // prevent 0 from being printed
+    if (value != '')
     document.getElementById('typed-value').innerHTML = valueRupees + valueCrore;
-    document.getElementById('').innerHTML = valueCrore;
-    // console.log(value);
 }
 
 function fnum(x){
