@@ -7,6 +7,10 @@ body{
     margin-top:200px;
 }
 
+#heading {
+    margin-bottom:50px;
+}
+
 input, button{
     box-shadow: 0px 15px 15px rgb(243, 242, 242);
 }

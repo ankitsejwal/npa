@@ -13,9 +13,16 @@ function calculate() {
     let rupee = getRupeeValue();
     let result = (rupee * crore)/dollar;
     let displayResult = `= $ ${Math.round(result)}`
+    // check if rupee is not a number
+    if (isNaN(rupee)){
+        typedValue('Please enter a valid number')
+        console.log('Enter valid number.')
+        return
+    }
     if (rupee === ""){
         displayResult = '';
-        document.getElementById('typed-value').innerHTML = 'Please enter a value ...';
+        typedValue('Please enter a value ...');
+        return
     }
     document.getElementById('result').innerHTML = displayResult;
     console.log(displayResult);
@@ -27,14 +34,24 @@ function getRupeeValue(){
     return value;
 }
 
+function typedValue(value){
+    document.getElementById('typed-value').innerHTML = value;
+}
+
 function enteredValue(){
+    console.log('entered value triggered');
     let value       = getRupeeValue();
     let valueRupees = `Rs. ${value} `
     let valueCrore  = `(${value * 10000000})`;   // convert to crore
 
+    document.getElementById('typed-value').innerHTML = value;
     // prevent 0 from being printed
     if (value != '')
-    document.getElementById('typed-value').innerHTML = valueRupees + valueCrore;
+        typedValue(valueRupees + valueCrore);
+        console.log(value);
+
+    if (isNaN(value))
+        typedValue('Please only use numerals ...');
 }
 
 function fnum(x){
@@ -55,8 +72,24 @@ function fnum(x){
     }
 }
 
+function animate(){
+    word = "Welcome. Enter a number.";
+    let string = '';
+    for(let i=0; i < word.length; i++) {
+        {
+            setTimeout(() => {
+                string += word[i];
+                console.log(string);
+                document.getElementById('heading').innerHTML = string;
+            }, 80 * i);
+        }
+    }
+}
+
+animate();
+
 // trigger calculate() on ENTER press
-document.getElementById('rupee-value').onkeydown = (evt) => {
+document.getElementById('rupee-value').onkeyup = (evt) => {
     if (evt.which === 13) {
         calculate();
     }

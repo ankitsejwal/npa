@@ -15,16 +15,17 @@
 <body class="container-fluid" onload="init()">
     
     <div class="main col-6 col-offset">
+        <h4 id="heading"></h4>
         <div class="row">
             <div class="col-10">
-                <input type="text" class="form-control form-control-lg text-muted" onkeyup="enteredValue()" type="text" id="rupee-value" placeholder="Enter amount in crore">
+                <input type="text" class="form-control form-control-lg text-muted" onkeydown="enteredValue()" type="text" id="rupee-value" placeholder="Enter amount in crore">
             </div>
             <div class="col-2">
                 <button class="btn btn-lg btn-success" onclick="calculate()">Convert</button>
             </div>
         </div>
         <div id="output">
-            <label for="" class="form-text" id="typed-value"></label>
+            <label class="form-text" id="typed-value"></label>
             <p id="result"></p>
         </div>
     </div>
