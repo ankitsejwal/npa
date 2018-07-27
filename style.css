@@ -1,0 +1,22 @@
+body{
+    background: rgb(243, 243, 243);
+}
+
+.main{
+    margin: 0 auto;
+    margin-top:200px;
+}
+
+.output{
+    margin-top: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: #999;
+    font-size: 18px;
+}
+
+
+.output #result{
+    color: #444;
+    font-size: 20px;
+}

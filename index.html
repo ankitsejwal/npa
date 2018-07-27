@@ -5,21 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>NPA converter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-</head>
-<body onload="init()">
-    <div id="value">
-        <p>
-            Rs. 
-            <span id="rs-value">0</span> crore
-            <span id="rs-value-numeric"></span>
-        </p>
-        <input onkeyup="enteredValue()" type="text" id="rupee-value" placeholder="Enter amount in crore">
-        <br>
-        <button onclick="calculate()">Convert</button>
-    </div>
-    <div>
-        <p id="result"></p>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ </head>
+<body class="container-fluid" onload="init()">
+    
+    <div class="main col-6 col-offset">
+        <div class="row">
+            <div class="col-10">
+                <input type="text" class="form-control form-control-lg text-muted" onkeyup="enteredValue()" type="text" id="rupee-value" placeholder="Enter amount in crore">
+            </div>
+            <div class="col-2">
+                <button class="btn btn-lg btn-success" onclick="calculate()">Convert</button>
+            </div>
+        </div>
+        <div class="output row">
+            <div class="col-8">
+                <label for="" class="form-text" id="typed-value"></label>
+            </div>
+            <div class="col-4">
+                <p id="result"></p>
+            </div>
+        </div>
+
     </div>
     <script src="main.js"></script>
 </body>

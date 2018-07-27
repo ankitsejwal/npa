@@ -12,17 +12,19 @@ function calculate() {
 
     let rupee = document.getElementById('rupee-value').value;
     let result = (rupee * crore)/dollar;
-    let displayResult = `$ ${Math.round(result)}`
+    let displayResult = `= $ ${Math.round(result)}`
     document.getElementById('result').innerHTML = displayResult;
     console.log(result);
     console.log(fnum(result));
 }
 
 function enteredValue(){
-    let value = document.getElementById('rupee-value').value;
-    let valueNumeric = `(${value * 10000000})`;   // convert to crore
-    document.getElementById('rs-value-numeric').innerHTML = valueNumeric;
-    document.getElementById('rs-value').innerHTML = value;
+    let value       = document.getElementById('rupee-value').value;
+    let valueRupees = `Rs. ${value} `
+    let valueCrore  = `(${value * 10000000})`;   // convert to crore
+
+    document.getElementById('typed-value').innerHTML = valueRupees + valueCrore;
+    document.getElementById('').innerHTML = valueCrore;
     // console.log(value);
 }
 
