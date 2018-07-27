@@ -41,7 +41,7 @@ function typedValue(value){
 function enteredValue(){
     console.log('entered value triggered');
     let value       = getRupeeValue();
-    let valueRupees = `Rs. ${value} `
+    let valueRupees = `Rs. ${value} crore `
     let valueCrore  = `(${value * 10000000})`;   // convert to crore
 
     document.getElementById('typed-value').innerHTML = value;

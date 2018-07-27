@@ -1,14 +1,30 @@
 body{
-    background: rgb(243, 243, 243);
+    background: rgb(249, 249, 249);
+    height: 100%;
+    position: absolute;
 }
 
 .main{
+    /* background: #CCC; */
+}
+
+.sidebar{
+    /* background: url(http://s2.favim.com/610/150722/blue-color-scheme-colors-gradient-Favim.com-2990082.jpg); */
+    background: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/d2963d51830921.58fb777b63088.jpg);
+    background-size: cover;
+}
+
+.box{
     margin: 0 auto;
     margin-top:200px;
 }
 
+.main-row{
+    height: 100%;
+}
+
 #heading {
-    margin-bottom:50px;
+    margin-bottom:20px;
 }
 
 input, button{
@@ -16,7 +32,7 @@ input, button{
 }
 
 #output{
-    margin-top: 100px;
+    margin-top: 80px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
     color: #999;
@@ -27,4 +43,11 @@ input, button{
 #output #result{
     color: #444;
     font-size: 20px;
+}
+
+.sidebar p{
+    color: white;
+    /* font-weight: 500; */
+    margin: 180px 0 0 10px;
+    text-shadow: 0px 0px 4px #9b9a9a;
 }
