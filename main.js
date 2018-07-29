@@ -12,7 +12,7 @@ function calculate() {
 
     let rupee = getRupeeValue();
     let result = (rupee * crore)/dollar;
-    let displayResult = `= $ ${Math.round(result)}`
+    let displayResult = `= $ ${Math.round(result)} ($ ${fnum(result)})`
     // check if rupee is not a number
     if (isNaN(rupee)){
         typedValue('Please enter a valid number')
@@ -94,3 +94,5 @@ document.getElementById('rupee-value').onkeyup = (evt) => {
         calculate();
     }
 }
+
+
