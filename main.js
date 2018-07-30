@@ -3,9 +3,28 @@ function init() {
     document.getElementById('rupee-value').value = "";
 }
 
+function getRates(){    
+    const SECRET_KEY = config.SECRET_KEY;
+    const apiURI    = `http://data.fixer.io/api/latest?access_key=${SECRET_KEY}&format=1&base=EUR&symbols=usd,inr`;
+    let data = '';
+    $.ajax({
+        url: apiURI,
+        dataType: 'json',
+        async: false,
+        success: function(result) {
+            // console.log(data)
+            data = result;
+        }
+      });
+      return data;
+}
+
 function calculate() {
     // implement main function
-    const dollar    = 68;           // dollar to ruppee value
+    const getRate   = getRates();
+    const USD       = getRate.rates.USD;
+    const INR       = getRate.rates.INR;
+    const dollar    = INR/USD;           // dollar to ruppee value
     const crore     = 10000000;
     const million   = 1000000;
     const billion   = 1000000000;
@@ -39,15 +58,18 @@ function typedValue(value){
 }
 
 function enteredValue(){
-    console.log('entered value triggered');
     let value       = getRupeeValue();
     let valueRupees = `Rs. ${value} crore `
     let valueCrore  = `(${value * 10000000})`;   // convert to crore
+    const getRate   = getRates();
+    const USD       = getRate.rates.USD;
+    const INR       = getRate.rates.INR;
+    const dollar    = INR/USD;           // dollar to ruppee value
 
     document.getElementById('typed-value').innerHTML = value;
     // prevent 0 from being printed
     if (value != '')
-        typedValue(valueRupees + valueCrore);
+        typedValue(`${valueRupees} | USD: ${dollar.toFixed(2)}`);
         console.log(value);
 
     if (isNaN(value))
@@ -72,21 +94,18 @@ function fnum(x){
     }
 }
 
-function animate(){
+{
     word = "Welcome. Enter a number.";
     let string = '';
     for(let i=0; i < word.length; i++) {
         {
             setTimeout(() => {
                 string += word[i];
-                console.log(string);
                 document.getElementById('heading').innerHTML = string;
             }, 80 * i);
         }
     }
 }
-
-animate();
 
 // trigger calculate() on ENTER press
 document.getElementById('rupee-value').onkeyup = (evt) => {
@@ -94,5 +113,3 @@ document.getElementById('rupee-value').onkeyup = (evt) => {
         calculate();
     }
 }
-
-
