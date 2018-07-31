@@ -3,6 +3,8 @@ function init() {
     document.getElementById('rupee-value').value = "";
 }
 
+
+// get current dollar rates through api
 function getRates(){    
     const SECRET_KEY = config.SECRET_KEY;
     const apiURI    = `http://data.fixer.io/api/latest?access_key=${SECRET_KEY}&format=1&base=EUR&symbols=usd,inr`;
@@ -19,15 +21,14 @@ function getRates(){
       return data;
 }
 
+
+// implement main calculations
 function calculate() {
-    // implement main function
     const getRate   = getRates();
     const USD       = getRate.rates.USD;
     const INR       = getRate.rates.INR;
     const dollar    = INR/USD;           // dollar to ruppee value
     const crore     = 10000000;
-    const million   = 1000000;
-    const billion   = 1000000000;
 
     let rupee = getRupeeValue();
     let result = (rupee * crore)/dollar;
@@ -48,23 +49,28 @@ function calculate() {
     console.log(fnum(result));
 }
 
+
+// get input value
 function getRupeeValue(){
     let value = document.getElementById('rupee-value').value;
     return value;
 }
 
+
 function typedValue(value){
     document.getElementById('typed-value').innerHTML = value;
 }
 
+
+// Give user typing feedback
 function enteredValue(){
     let value       = getRupeeValue();
     let valueRupees = `Rs. ${value} crore `
-    let valueCrore  = `(${value * 10000000})`;   // convert to crore
+    let valueCrore  = `(${value * 10000000})`;      // convert to crore
     const getRate   = getRates();
     const USD       = getRate.rates.USD;
     const INR       = getRate.rates.INR;
-    const dollar    = INR/USD;           // dollar to ruppee value
+    const dollar    = INR/USD;                      // dollar to ruppee value
 
     document.getElementById('typed-value').innerHTML = value;
     // prevent 0 from being printed
@@ -75,6 +81,7 @@ function enteredValue(){
     if (isNaN(value))
         typedValue('Please only use numerals ...');
 }
+
 
 function fnum(x){
     if (x < 1000000) {
@@ -94,7 +101,8 @@ function fnum(x){
     }
 }
 
-{
+
+{   // self executing function - to animate text
     word = "Welcome. Enter a number.";
     let string = '';
     for(let i=0; i < word.length; i++) {
@@ -106,6 +114,7 @@ function fnum(x){
         }
     }
 }
+
 
 // trigger calculate() on ENTER press
 document.getElementById('rupee-value').onkeyup = (evt) => {
